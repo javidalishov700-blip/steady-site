@@ -7,6 +7,7 @@ on:
       - 'site/**'
       - 'public/legal/**'
       - 'public/icon-1024.png'
+      - 'public/sliceblast/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -30,10 +31,11 @@ jobs:
 
       - name: Assemble static site
         run: |
-          mkdir -p _site/legal
+          mkdir -p _site/legal _site/sliceblast/legal
           cp site/index.html _site/index.html
           cp public/icon-1024.png _site/icon-1024.png
           cp public/legal/privacy.html public/legal/terms.html public/legal/support.html public/legal/legal.css public/legal/legal.js _site/legal/
+          cp public/sliceblast/legal/privacy.html public/sliceblast/legal/terms.html public/sliceblast/legal/support.html public/sliceblast/legal/legal.css _site/sliceblast/legal/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
